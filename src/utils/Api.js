@@ -2,7 +2,7 @@ import axios from "axios"
 
   const BASE_URL = "https://api.themoviedb.org/3"
 
-  const TMDB_TOKEN= "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODU1NTJjYjYxNzA3MzFlODBmODQxNjNhYWRjNzI1YyIsInN1YiI6IjY0ODE5ZmQ5YmYzMWYyMDBlM2ZiYjNkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ov5gRXC8Zbb8kVxla5aaCC4ubZUEO2dk2Q7v3M5m3bw"
+  const TMDB_TOKEN= "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjE4NzE1YTUwODI2ZDFmNWQ0ZTQwYWMyYThiMWRlZSIsInN1YiI6IjY1ZGVmMzdkOGM0NGI5MDE3YzE0MzAyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.q1-gA1NTkEqnn4m0v6bK40MXAOEQcetVky0Vfl6-ClE"
 
 
   const options = {

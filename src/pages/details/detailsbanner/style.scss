@@ -1,0 +1,115 @@
+.banner {
+    .banner_item {
+        position: relative;
+        .banner_img {
+            height: auto;
+            img {
+                height: 700px;
+                width: 100%;
+                opacity: 0.5;
+            }
+        }
+        .banner_overview {
+            position: absolute;
+            display: flex;
+            overflow: hidden;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            bottom: 0px;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+            .banner_content {
+                display: flex;
+
+                gap: 3rem;
+                width: 60rem;
+                height: 30rem;
+                .banner_poster {
+                    width: 19rem;
+                    img {
+                        bottom: 0px;
+                        height: 100%;
+                        width: 100%;
+                        box-shadow: 12px 29px 81px 0px rgba(0, 0, 0, 0.75);
+                        border-radius: 10px;
+                        width: 100%;
+                    }
+                }
+                .banner_details {
+                    animation: 3s anim-lineUp ease-out;
+                @keyframes anim-lineUp {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(80%);
+                    }
+                    20% {
+                        opacity: 0;
+                    }
+                    50% {
+                        opacity: 1;
+                        transform: translateY(0%);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0%);
+                    }
+                }
+                width: 38rem;
+                .banner_title {
+                    font-weight: 750;
+                    font-size: 4.5rem;
+                    text-align: left;
+                    margin-bottom:40px;
+                }
+                .banner_info {
+                    display: flex;
+                    align-items: center;
+                    margin: 20px 10px;
+                    .logo {
+                        height: 24px;
+                        width: 48px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .rating {
+                        font-size: 1.2rem;
+                        margin-left: 25px;
+                    }
+                    .banner_releasedate {
+                        font-size: 1.2rem;
+                        margin-left: 25px;
+                    }
+                    .runtime{
+                        font-size: 1.2rem;
+                        margin-left: 25px;
+                    }
+                    .adult{
+                        font-size: 1.2rem;
+                        margin-left: 25px;
+                    }
+                }
+                .banner_description {
+                    font-size: 1.1rem;
+                    font-weight: 300;
+                    text-align: left;
+                    margin: 10px;
+                }
+                .genres{
+                    display: flex;
+                    margin:10px;
+                    align-items: center;
+                    .genres_name{
+                        font-size: 1.15rem;
+                        font-weight: 450;
+                        margin-right: 50px ;
+
+                    }
+                }
+            }
+        }
+    }
+}
+}

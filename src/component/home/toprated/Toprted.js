@@ -4,14 +4,14 @@ import useFetch from '../../../hooks/useFetch';
 import "./style.scss"
 
 export default function Toprated() {
-    const { data, loading } = useFetch("/movie/top_rated")
+    const { data, loading } = useFetch("/discover/movie?api_key=285552cb6170731e80f84163aadc725c&page=4&with_original_language=hi")
     console.log("toprated",data)
   return (
     <div>
       <div className='title'>
-        <h1 >Toprated</h1>
+        <h2 >Toprated</h2>
         </div>
-        <div className='populerlist'>
+        <div>
             <Carousel data={data}
                     loading={loading}/>
         </div>

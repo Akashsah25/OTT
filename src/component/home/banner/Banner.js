@@ -20,7 +20,7 @@ export default function Banner() {
     }
   }
 
-  const { data, loading } = useFetch("/movie/upcoming")
+  const { data, loading } = useFetch("/discover/movie?api_key=285552cb6170731e80f84163aadc725c&page=1&primary_release_year=2023&with_original_language=hi")
 
 
   console.log("banner", data)
@@ -42,7 +42,7 @@ export default function Banner() {
       />
       <button>Search</button> */}
       {!loading ?
-        (<div className='banner'>
+        (<div className='poster'>
 
           <Carousel
             showThumbs={false}
@@ -54,6 +54,7 @@ export default function Banner() {
             {data?.data?.results?.map((item) => {
 
               const imgurl = item?.backdrop_path ? url.backdrop + item?.backdrop_path : <h1>akash</h1>
+              const imdbimage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
 
               return (
                 <div className='poster_item' key={item.id}>
@@ -61,18 +62,20 @@ export default function Banner() {
                     <img src={imgurl} />
                   </div>
                   <div className='poster_overview'>
-                    <div className='poster_title'>
-                      {item ? item.original_title : ""}
-                    </div>
-                    <div className='poster_releasedate'>
-                      {item ? item.release_date : ""}
-                    </div>
-                    <div className='poster_rating'>
-                      {item ? item.vote_average : ""}
-                    </div>
-                    <div className='poster_description'>
-                      {item ? item.overview : ""}
-                    </div>
+                      <div className='poster_title'>
+                        {item.title ? item.title : ""}
+                      </div>
+                      <div className='poster_rating'>
+                        <div className='logo'>
+                          <img src={imdbimage}></img>
+                        </div>
+                        <div className='rating'>
+                          {item.vote_average ? item.vote_average.toString().slice(0, 3) : ""}/10
+                        </div>
+                      </div>
+                      <div className='poster_description'>
+                        {item ? item.overview : ""}
+                      </div>
                   </div>
                 </div>
               )
@@ -82,13 +85,13 @@ export default function Banner() {
           </Carousel>
 
         </div>
-        ) : 
-          <SkeletonTheme baseColor="#202020" highlightColor="#444">
-                
-                    <Skeleton height={600} duration={2} />
-                
-            </SkeletonTheme>
-        
+        ) :
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+
+          <Skeleton height={600} duration={2} />
+
+        </SkeletonTheme>
+
       }
     </div>
   );

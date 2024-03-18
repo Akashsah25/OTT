@@ -4,17 +4,17 @@ import useFetch from '../../../hooks/useFetch';
 import "./style.scss"
 
 export default function Upcoming() {
-    const { data, loading } = useFetch("/tv/1399?language=en-IN")
+    const { data, loading } = useFetch("/discover/movie?api_key=285552cb6170731e80f84163aadc725c&page=1&primary_release_year=2024&with_original_language=hi")
     console.log("tranding",data)
   return (
     <div>
       <div className='title'>
-        <h1>Tranding</h1>
+        <h2>Tranding</h2>
         </div>
-        {/* <div className='populerlist'>
+        <div>
             <Carousel data={data}
                     loading={loading}/>
-        </div> */}
+        </div>
     </div>
   );
 }

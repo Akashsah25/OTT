@@ -1,8 +1,29 @@
-.banner {
+.poster {
+    
     .poster_item {
+        animation: 4s anim-lineUp ease-out;
+                @keyframes anim-lineUp {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(80%);
+                    }
+                    20% {
+                        opacity: 0;
+                    }
+                    50% {
+                        opacity: 1;
+                        transform: translateY(0%);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0%);
+                    }
+                }
         .poster_Img {
-            height: 600px;
+            height: auto;
+
             img {
+                height: 600px;
                 margin: auto;
                 width: 100%;
                 display: block;
@@ -22,34 +43,35 @@
             opacity: 1;
             transition: opacity 0.3s;
 
-            hover {
-                opacity: 1;
-            }
-
             .poster_title {
                 font-weight: 900;
-                font-size: 4rem;
-                margin-bottom: 0.4rem;
+                font-size: 5rem;
                 text-align: left;
-            }
-
-            .poster_releasedate {
-                font-size: 2rem;
-                margin-bottom: 1rem;
+                margin-bottom: 20px;
             }
 
             .poster_rating {
-                margin-left: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .poster_description {
-                font-style: italic;
-                font-size: 1rem;
-                margin-bottom: 0.25rem;
                 display: flex;
+                align-items: center;
+                margin: 10px;
+                .logo {
+                    height: 25px;
+                    width: 50px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .rating {
+                    font-size: 1.2rem;
+                    margin-left: 15px;
+                }
+            }
+            .poster_description {
+                font-size: 0.95rem;
+                font-weight: 400;
                 text-align: left;
                 width: 50%;
+                margin: 0px 10px;
             }
         }
     }

@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:meadiatype/:id" element={<Details />} />

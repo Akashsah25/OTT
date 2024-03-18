@@ -4,7 +4,6 @@ import axios from "axios"
 
   const TMDB_TOKEN= "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjE4NzE1YTUwODI2ZDFmNWQ0ZTQwYWMyYThiMWRlZSIsInN1YiI6IjY1ZGVmMzdkOGM0NGI5MDE3YzE0MzAyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.q1-gA1NTkEqnn4m0v6bK40MXAOEQcetVky0Vfl6-ClE"
 
-
   const options = {
     method: 'GET',
     headers: {

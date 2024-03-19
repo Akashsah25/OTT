@@ -63,6 +63,18 @@
                     text-align: left;
                     margin-bottom:40px;
                 }
+                .banner_description {
+                    font-size: 1.1rem;
+                    font-weight: 300;
+                    text-align: left;
+                    margin: 10px;
+                }
+
+
+
+
+
+
                 .banner_info {
                     display: flex;
                     align-items: center;
@@ -91,20 +103,30 @@
                         margin-left: 25px;
                     }
                 }
-                .banner_description {
-                    font-size: 1.1rem;
-                    font-weight: 300;
-                    text-align: left;
-                    margin: 10px;
-                }
                 .genres{
                     display: flex;
                     margin:10px;
-                    align-items: center;
                     .genres_name{
                         font-size: 1.15rem;
                         font-weight: 450;
                         margin-right: 50px ;
+
+                    }
+                }
+                .director{
+                    display: flex;
+                    margin:10px;
+                    .director_name{
+                        font-size: 1rem;
+                        font-weight: 300;
+                    }
+                }
+                .writer{
+                    display: flex;
+                    margin:10px;
+                    .writer_name{
+                        font-size: 1rem;
+                        font-weight: 300;
 
                     }
                 }

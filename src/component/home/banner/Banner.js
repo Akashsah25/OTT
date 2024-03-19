@@ -25,13 +25,6 @@ export default function Banner() {
 
   console.log("banner", data)
 
-
-  // useEffect(() => {
-  //   const bg = url.backdrop + data?.data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path
-  //   setbackground(bg)
-  //   console.log("banner url",bg)
-  // }, [data])
-
   return (
     <div>
       {/* <input
@@ -57,7 +50,8 @@ export default function Banner() {
               const imdbimage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
 
               return (
-                <div className='poster_item' key={item.id}>
+                <div className='poster_item' key={item.id} onClick={() => navigate(`/movie/${item.id
+                }`)}>
                   <div className='poster_Img'>
                     <img src={imgurl} />
                   </div>

@@ -23,7 +23,7 @@ export default function Banner() {
   const { data, loading } = useFetch("/discover/movie?api_key=285552cb6170731e80f84163aadc725c&page=1&primary_release_year=2023&with_original_language=hi")
 
 
-  console.log("banner", data)
+  // console.log("banner", data)
 
   return (
     <div>

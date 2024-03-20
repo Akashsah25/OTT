@@ -4,18 +4,30 @@ import useFetch from '../../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import './style.scss'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { PlayIcon } from '../Playbtn';
+import VideoPopup from '../../../component/videopopup/VideoPopup';
 
 export default function Detailsbanner({ crew }) {
-    console.log("crewww", crew)
+    // console.log("crew", crew)
+
     const [background, setbackground] = useState("");
     const [poster, setposter] = useState("");
     const { url } = useSelector((state) => state.home)
     const { id } = useParams()
+    console.log("id",id)
     const { data, loading } = useFetch(`/movie/${id}`)
-    console.log("details", data)
+    // console.log("details", data)
+
+    const { videos, videoloading } = useFetch(`/movie/${id}/videos`)
+    console.log("video",videos)
+
+    
 
     const director = crew?.filter((D) => D.job === "Director");
     const writer = crew?.filter((W) => W.job === "Writer")
+
+    const [show, setShow] = useState(false);
+    const [videoId, setVideoId] = useState(null);
 
     const imdbimage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
 
@@ -95,9 +107,29 @@ export default function Detailsbanner({ crew }) {
                                     })}
                                 </div>
                                 }
+                                <div className="playbtn"
+                                    onClick={() => {
+                                        setShow(true);
+                                        setVideoId(videos?.results?.[0].key);
+                                    }}
+                                >
+                                    <div className='icon'>
+                                    {/* <PlayIcon/> */}
+                                    <img src='https://www.iconpacks.net/icons/2/free-play-button-icon-4210-thumb.png'></img>
+                                    </div>
+                                    <div className="text">
+                                        Watch Trailer
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <VideoPopup
+                        show={show}
+                        setShow={setShow}
+                        videoId={videoId}
+                        setVideoId={setVideoId}
+                    />
                 </div>
                 ) :
                 <SkeletonTheme baseColor="#202020" highlightColor="#444">

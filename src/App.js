@@ -25,7 +25,7 @@ function App() {
           poster: result?.data?.images?.secure_base_url + "original",
           profile: result?.data?.images?.secure_base_url + "original"
         }
-        console.log(url.backdrop)
+        // console.log(url.backdrop)
         dispatch(GetApi(url))
       })
   }, []) 

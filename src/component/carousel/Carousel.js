@@ -2,8 +2,9 @@ import React from 'react';
 import useFetch from '../../hooks/useFetch';
 import { useSelector } from 'react-redux';
 import "./style.scss"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Img from '../lazyloading/LazyLoding';
 
 export default function Carousel({ data, loading }) {
     const { url } = useSelector((state) => state.home)
@@ -20,7 +21,7 @@ export default function Carousel({ data, loading }) {
                             <div key={item.id} onClick={() => navigate(`/movie/${item.id
                                 }`)} className='carouselItem'>
                                 <div className='cards_img'>
-                                    <img src={poster_img} />
+                                    <Img src={poster_img} />
                                 </div>
                                 <div className='cards_overview'>
                                     <div className='cards_title'>

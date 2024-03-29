@@ -1,9 +1,13 @@
 .banner {
+    display: flex;
+    justify-content: center;
     .banner_item {
+        width: 95%;
         position: relative;
         .banner_img {
             height: auto;
             img {
+                border-radius: 10px;
                 height: 700px;
                 width: 100%;
                 opacity: 0.5;

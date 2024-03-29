@@ -33,12 +33,13 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:meadiatype/:id" element={<Details />} />
+          <Route path="/:mediatype" element={<Home />} />
+          <Route path="/:mediatype/:id" element={<Details />} />
           <Route path="/search/:query" element={<Search />} />
-          <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="/explore/:mediatype" element={<Explore />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />

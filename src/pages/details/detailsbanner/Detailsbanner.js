@@ -6,6 +6,7 @@ import './style.scss'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { PlayIcon } from '../Playbtn';
 import VideoPopup from '../../../component/videopopup/VideoPopup';
+import Img from '../../../component/lazyloading/LazyLoding';
 
 export default function Detailsbanner({ crew }) {
     // console.log("crew", crew)
@@ -13,12 +14,12 @@ export default function Detailsbanner({ crew }) {
     const [background, setbackground] = useState("");
     const [poster, setposter] = useState("");
     const { url } = useSelector((state) => state.home)
-    const { id } = useParams()
+    const {mediatype, id } = useParams()
     console.log("id",id)
     const { data, loading } = useFetch(`/movie/${id}`)
-    // console.log("details", data)
+    console.log("details", data)
 
-    const { videos, videoloading } = useFetch(`/movie/${id}/videos`)
+    const { data:videos, loading:videoloading } = useFetch(`/movie/${id}/videos`)
     console.log("video",videos)
 
     
@@ -48,12 +49,12 @@ export default function Detailsbanner({ crew }) {
             {!loading ?
                 (<div className='banner_item'>
                     <div className='banner_img'>
-                        <img src={background} />
+                        <Img src={background} />
                     </div>
                     <div className='banner_overview'>
                         <div className='banner_content'>
                             <div className='banner_poster'>
-                                <img src={poster}></img>
+                                <Img src={poster}/>
                             </div>
                             <div className='banner_details'>
                                 <div className='banner_title'>
@@ -64,7 +65,7 @@ export default function Detailsbanner({ crew }) {
                                 </div>
                                 <div className='banner_info'>
                                     <div className='logo'>
-                                        <img src={imdbimage}></img>
+                                        <Img src={imdbimage}/>
                                     </div>
                                     <div className='rating'>
                                         {data?.data?.vote_average ? data?.data?.vote_average.toString().slice(0, 3) : ""}/10
@@ -110,12 +111,12 @@ export default function Detailsbanner({ crew }) {
                                 <div className="playbtn"
                                     onClick={() => {
                                         setShow(true);
-                                        setVideoId(videos?.results?.[0].key);
+                                        setVideoId(videos?.data?.results?.[0]?.key);
                                     }}
                                 >
                                     <div className='icon'>
                                     {/* <PlayIcon/> */}
-                                    <img src='https://www.iconpacks.net/icons/2/free-play-button-icon-4210-thumb.png'></img>
+                                    <Img src='https://www.iconpacks.net/icons/2/free-play-button-icon-4210-thumb.png'/>
                                     </div>
                                     <div className="text">
                                         Watch Trailer

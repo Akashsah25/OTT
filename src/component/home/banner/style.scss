@@ -1,77 +1,83 @@
-.poster {
-    
-    .poster_item {
-        animation: 4s anim-lineUp ease-out;
-                @keyframes anim-lineUp {
-                    0% {
-                        opacity: 0;
-                        transform: translateY(80%);
-                    }
-                    20% {
-                        opacity: 0;
-                    }
-                    50% {
-                        opacity: 1;
-                        transform: translateY(0%);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0%);
-                    }
-                }
-        .poster_Img {
-            height: auto;
-
-            img {
-                height: 600px;
-                margin: auto;
+.poster_content {
+    display: flex;
+    justify-content: center;
+    .poster {
+        width: 96%;
+        // animation: 4s anim-lineUp ease-out;
+        //         @keyframes anim-lineUp {
+        //             0% {
+        //                 opacity: 0;
+        //                 transform: translateY(80%);
+        //             }
+        //             20% {
+        //                 opacity: 0;
+        //             }
+        //             50% {
+        //                 opacity: 1;
+        //                 transform: translateY(0%);
+        //             }
+        //             100% {
+        //                 opacity: 1;
+        //                 transform: translateY(0%);
+        //             }
+        //         }
+        .poster_item {
+            .poster_Img {
                 width: 100%;
-                display: block;
+                height: auto;
+                
+                img {
+                    border-radius: 10px;
+                    height: 550px;
+                    margin: auto;
+                    width: 100%;
+                    display: block;
+                }
             }
-        }
-        .poster_overview {
-            position: absolute;
-            padding: 5rem;
-            bottom: 0px;
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            justify-content: flex-end;
-            align-items: flex-start;
-            background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-            opacity: 1;
-            transition: opacity 0.3s;
-
-            .poster_title {
-                font-weight: 900;
-                font-size: 5rem;
-                text-align: left;
-                margin-bottom: 20px;
-            }
-
-            .poster_rating {
+            .poster_overview {
+                position: absolute;
+                padding: 5rem;
+                bottom: 0px;
+                height: 70%;
                 display: flex;
-                align-items: center;
-                margin: 10px;
-                .logo {
-                    height: 25px;
-                    width: 50px;
-                    img {
-                        width: 100%;
+                flex-direction: column;
+                width: 100%;
+                justify-content: flex-end;
+                align-items: flex-start;
+                background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+                opacity: 1;
+                transition: opacity 0.3s;
+
+                .poster_title {
+                    font-weight: 900;
+                    font-size: 5rem;
+                    text-align: left;
+                    margin-bottom: 20px;
+                }
+
+                .poster_rating {
+                    display: flex;
+                    align-items: center;
+                    margin: 10px;
+                    .logo {
+                        height: 25px;
+                        width: 50px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .rating {
+                        font-size: 1.2rem;
+                        margin-left: 15px;
                     }
                 }
-                .rating {
-                    font-size: 1.2rem;
-                    margin-left: 15px;
+                .poster_description {
+                    font-size: 0.95rem;
+                    font-weight: 400;
+                    text-align: left;
+                    width: 50%;
+                    margin: 0px 10px;
                 }
-            }
-            .poster_description {
-                font-size: 0.95rem;
-                font-weight: 400;
-                text-align: left;
-                width: 50%;
-                margin: 0px 10px;
             }
         }
     }

@@ -1,39 +1,175 @@
-.navbar{
+// .navbar{
+//     display: flex;
+//     justify-content: center;
+// .navbar_item {
+//     display: flex;
+//     justify-content: center;
+//     z-index: 1;
+//     width: 50%;
+//     position: fixed;
+//     border-radius: 10px;
+//     scroll-margin-top: 15px;
+//     background-color: black;
+//     // padding: 10px 20px;
+//   }
+  
+//   .navbar__list {
+//     list-style-type: none;
+//     margin: 0px;
+//     padding: 16px;
+//   }
+  
+//   .navbar__item {
+//     display: inline-block;
+//     margin-right: 10px;
+//   }
+  
+//   .navbar__link {
+//     color:white;
+//     text-decoration: none;
+//     font-size: 20px;
+//     font-weight: 300;
+//     padding: 5px 15px;
+//     border-radius: 5px;
+//   }
+  
+//   .navbar__link:hover {
+//     background-color: hsl(0, 0%, 20%);
+//   }
+// }
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  backdrop-filter: blur(12px);           // Modern glass effect
+  transition: all 0.4s ease;
+  padding: 15px 60px;
+
+  @media (max-width: 768px) {
+    padding: 12px 20px;
+  }
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-.navbar_item {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // Logo - Futuristic & Bold
+  &__logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    
+    .logo-text {
+      background: linear-gradient(90deg, #e50914, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    &:hover .logo-text {
+      transform: scale(1.05);
+    }
+  }
+
+  &__list {
     display: flex;
-    justify-content: center;
-    z-index: 1;
-    width: 50%;
-    position: fixed;
-    border-radius: 10px;
-    scroll-margin-top: 15px;
-    background-color: black;
-    // padding: 10px 20px;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 900px) {
+      gap: 20px;
+    }
   }
-  
-  .navbar__list {
-    list-style-type: none;
-    margin: 0px;
-    padding: 16px;
+
+  &__item {
+    position: relative;
   }
-  
-  .navbar__item {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .navbar__link {
-    color:white;
+
+  &__link {
+    color: #e5e5e5;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 300;
-    padding: 5px 15px;
-    border-radius: 5px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    // Underline animation (Netflix style)
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #e50914;
+      transition: all 0.4s ease;
+      transform: translateX(-50%);
+    }
+
+    &:hover::after {
+      width: 70%;
+    }
   }
-  
-  .navbar__link:hover {
-    background-color: hsl(0, 0%, 20%);
+
+  // Right Side
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__icon-btn {
+    background: transparent;
+    border: none;
+    color: #e5e5e5;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.15);
+    }
+  }
+
+  // Profile
+  &__profile {
+    .profile-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #e50914;
+        transform: scale(1.08);
+      }
+    }
   }
 }

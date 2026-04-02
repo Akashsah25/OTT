@@ -1,3 +1,108 @@
-.home{
-    overflow:hidden;
+// // .home{
+// //     overflow:hidden;
+// // }
+
+
+// .home {
+//   background-color: black;     // Deep Netflix-style black
+//   min-height: 100vh;
+//   overflow-x: hidden;            // Prevents horizontal scroll issues
+//   overflow-y: auto;
+//   color: #ffffff;
+//   font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif; // Optional: use system fonts if no custom font
+
+//   // Global spacing & section separation
+//   section {
+//     margin-bottom: 60px;         // Generous gap between rows like OTT platforms
+
+//     @media (max-width: 768px) {
+//       margin-bottom: 40px;
+//     }
+//   }
+
+//   // Optional: subtle top padding after banner
+//   & > :first-child {
+//     margin-top: 0;
+//   }
+
+//   // Smooth scroll behavior (feels premium)
+//   scroll-behavior: smooth;
+
+//   // Hide scrollbar but keep functionality (common in OTT UIs)
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+
+//   // For Firefox
+//   scrollbar-width: none;
+//   -ms-overflow-style: none;
+// }
+
+// /* Optional: Add a very subtle gradient overlay at the bottom of the page */
+// .home::after {
+//   content: '';
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   height: 120px;
+//   background: linear-gradient(
+//     to top,
+//     rgba(20, 20, 20, 0.95),
+//     transparent
+//   );
+//   pointer-events: none;
+//   z-index: 2;
+// }
+
+.home {
+  background-color:black;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  /* Hide scrollbar - clean OTT look */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Bottom fade for depth */
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to top, rgba(20, 20, 20, 0.98), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Scroll Reveal Animation - now repeats every time */
+  section {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+    transition: all 0.60s cubic-bezier(0.25, 0.1, 0.25, 1);   // smooth Netflix-style easing
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition-duration: 0.40s;
+    }
+
+    /* Stagger effect for nice flow */
+    &:nth-of-type(2) { transition-delay: 0.05s; }
+    &:nth-of-type(3) { transition-delay: 0.15s; }
+    &:nth-of-type(4) { transition-delay: 0.25s; }
+    &:nth-of-type(5) { transition-delay: 0.35s; }
+
+    @media (max-width: 768px) {
+      transform: translateY(40px) scale(0.97);
+    }
+  }
 }
+

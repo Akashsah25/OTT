@@ -1,84 +1,567 @@
-.poster_content {
-    display: flex;
-    justify-content: center;
-    .poster {
-        width: 96%;
-        // animation: 4s anim-lineUp ease-out;
-        //         @keyframes anim-lineUp {
-        //             0% {
-        //                 opacity: 0;
-        //                 transform: translateY(80%);
-        //             }
-        //             20% {
-        //                 opacity: 0;
-        //             }
-        //             50% {
-        //                 opacity: 1;
-        //                 transform: translateY(0%);
-        //             }
-        //             100% {
-        //                 opacity: 1;
-        //                 transform: translateY(0%);
-        //             }
-        //         }
-        .poster_item {
-            .poster_Img {
-                width: 100%;
-                height: auto;
+// .poster_content {
+//     display: flex;
+//     justify-content: center;
+//     .poster {
+//         width: 96%;
+//         // animation: 4s anim-lineUp ease-out;
+//         //         @keyframes anim-lineUp {
+//         //             0% {
+//         //                 opacity: 0;
+//         //                 transform: translateY(80%);
+//         //             }
+//         //             20% {
+//         //                 opacity: 0;
+//         //             }
+//         //             50% {
+//         //                 opacity: 1;
+//         //                 transform: translateY(0%);
+//         //             }
+//         //             100% {
+//         //                 opacity: 1;
+//         //                 transform: translateY(0%);
+//         //             }
+//         //         }
+//         .poster_item {
+//             .poster_Img {
+//                 width: 100%;
+//                 height: auto;
                 
-                img {
-                    border-radius: 10px;
-                    height: 550px;
-                    margin: auto;
-                    width: 100%;
-                    display: block;
-                }
-            }
-            .poster_overview {
-                position: absolute;
-                padding: 5rem;
-                bottom: 0px;
-                height: 70%;
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                justify-content: flex-end;
-                align-items: flex-start;
-                background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-                opacity: 1;
-                transition: opacity 0.3s;
+//                 img {
+//                     border-radius: 10px;
+//                     height: 550px;
+//                     margin: auto;
+//                     width: 100%;
+//                     display: block;
+//                 }
+//             }
+//             .poster_overview {
+//                 position: absolute;
+//                 padding: 5rem;
+//                 bottom: 0px;
+//                 height: 70%;
+//                 display: flex;
+//                 flex-direction: column;
+//                 width: 100%;
+//                 justify-content: flex-end;
+//                 align-items: flex-start;
+//                 background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+//                 opacity: 1;
+//                 transition: opacity 0.3s;
 
-                .poster_title {
-                    font-weight: 900;
-                    font-size: 5rem;
-                    text-align: left;
-                    margin-bottom: 20px;
-                }
+//                 .poster_title {
+//                     font-weight: 900;
+//                     font-size: 5rem;
+//                     text-align: left;
+//                     margin-bottom: 20px;
+//                 }
 
-                .poster_rating {
-                    display: flex;
-                    align-items: center;
-                    margin: 10px;
-                    .logo {
-                        height: 25px;
-                        width: 50px;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                    .rating {
-                        font-size: 1.2rem;
-                        margin-left: 15px;
-                    }
-                }
-                .poster_description {
-                    font-size: 0.95rem;
-                    font-weight: 400;
-                    text-align: left;
-                    width: 50%;
-                    margin: 0px 10px;
-                }
-            }
-        }
+//                 .poster_rating {
+//                     display: flex;
+//                     align-items: center;
+//                     margin: 10px;
+//                     .logo {
+//                         height: 25px;
+//                         width: 50px;
+//                         img {
+//                             width: 100%;
+//                         }
+//                     }
+//                     .rating {
+//                         font-size: 1.2rem;
+//                         margin-left: 15px;
+//                     }
+//                 }
+//                 .poster_description {
+//                     font-size: 0.95rem;
+//                     font-weight: 400;
+//                     text-align: left;
+//                     width: 50%;
+//                     margin: 0px 10px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+// ─── VARIABLES ───────────────────────────────────────────────────────────────
+$accent: #e50914;
+$accent-hover: #ff1a24;
+$gold: #f5c518;
+$white: #ffffff;
+$muted: rgba(255, 255, 255, 0.5);
+$glass: rgba(255, 255, 255, 0.07);
+$glass-border: rgba(255, 255, 255, 0.12);
+
+// ─── ROOT ────────────────────────────────────────────────────────────────────
+.ottp-banner {
+  font-family: 'DM Sans', sans-serif;
+  color: $white;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+// ─── SLIDES ──────────────────────────────────────────────────────────────────
+.ottp-slides {
+  position: relative;
+  width: 100%;
+  height: 75svh;
+  min-height: 560px;
+  max-height: 900px;
+  background: #000;
+  overflow: hidden;
+}
+
+.ottp-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+
+  &.active {
+    opacity: 1;
+    z-index: 2;
+
+    .ottp-slide__bg {
+      animation: kenBurns 8s ease-out forwards;
     }
+  }
+
+  &.prev {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+.ottp-slide__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transform-origin: center center;
+
+  &.skeleton-bg {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    background-size: 400% 400%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// ─── OVERLAYS ────────────────────────────────────────────────────────────────
+.ottp-overlay {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+
+  &--bottom {
+    bottom: 0; left: 0; right: 0;
+    height: 80%;
+    background: linear-gradient(to top,
+      rgba(0,0,0,0.98) 0%,
+      rgba(0,0,0,0.75) 30%,
+      rgba(0,0,0,0.3) 60%,
+      transparent 100%
+    );
+  }
+
+  &--left {
+    top: 0; left: 0; bottom: 0;
+    width: 55%;
+    background: linear-gradient(to right,
+      rgba(0,0,0,0.7) 0%,
+      rgba(0,0,0,0.3) 60%,
+      transparent 100%
+    );
+  }
+
+  &--top {
+    top: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom,
+      rgba(0,0,0,0.5) 0%,
+      transparent 100%
+    );
+  }
+
+  &--vignette {
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+      transparent 50%,
+      rgba(0,0,0,0.35) 100%
+    );
+  }
+}
+
+// ─── CONTENT ─────────────────────────────────────────────────────────────────
+.ottp-content {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 5% 11% 5%;
+
+  @media (min-width: 1200px) {
+    padding-bottom: 9%;
+    max-width: 900px;
+  }
+}
+
+.ottp-content__inner {
+  animation: contentReveal 0.8s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─── BADGE ───────────────────────────────────────────────────────────────────
+.ottp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 16px;
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $accent;
+    box-shadow: 0 0 8px $accent;
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+// ─── TITLE ───────────────────────────────────────────────────────────────────
+.ottp-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 20px 0;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  max-width: 14ch;
+}
+
+// ─── META ────────────────────────────────────────────────────────────────────
+.ottp-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: $gold;
+  }
+
+  &__sub {
+    color: $muted;
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
+
+  &__sep {
+    color: rgba(255,255,255,0.2);
+    font-size: 1.2rem;
+  }
+
+  &__year,
+  &__lang {
+    font-size: 0.875rem;
+    color: $muted;
+    font-weight: 500;
+  }
+
+  &__votes {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    margin-left: 4px;
+    background: rgba(255,255,255,0.07);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+}
+
+// ─── DESCRIPTION ─────────────────────────────────────────────────────────────
+.ottp-desc {
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 52ch;
+  margin: 0 0 28px 0;
+  font-weight: 400;
+}
+
+// ─── ACTIONS ─────────────────────────────────────────────────────────────────
+.ottp-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ottp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  white-space: nowrap;
+
+  &--primary {
+    background: $accent;
+    color: $white;
+    box-shadow: 0 0 0 0 rgba($accent, 0.5);
+
+    &:hover {
+      background: $accent-hover;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba($accent, 0.45);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    background: $glass;
+    color: $white;
+    border: 1px solid $glass-border;
+    backdrop-filter: blur(12px);
+
+    &:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ─── THUMBNAILS ──────────────────────────────────────────────────────────────
+.ottp-thumbnails {
+  position: absolute;
+  z-index: 10;
+  right: 5%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.ottp-thumb {
+  position: relative;
+  width: 90px;
+  height: 52px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    transition: background 0.25s ease;
+  }
+
+  &:hover .ottp-thumb__overlay {
+    background: rgba(0,0,0,0.15);
+  }
+
+  &.active {
+    border-color: $white;
+    transform: scale(1.06);
+
+    .ottp-thumb__overlay {
+      background: rgba(0,0,0,0.05);
+    }
+  }
+
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: rgba(255,255,255,0.2);
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    background: $accent;
+    width: 0%;
+    animation: progressFill linear forwards;
+    animation-duration: inherit;
+  }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+// ─── COUNTER ─────────────────────────────────────────────────────────────────
+.ottp-counter {
+  position: absolute;
+  z-index: 10;
+  right: calc(5% + 90px + 16px);
+  bottom: calc(10% + 10px);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    right: 5%;
+    bottom: 5%;
+  }
+
+  &__active {
+    font-size: 2.2rem;
+    color: $white;
+  }
+
+  &__sep {
+    font-size: 1rem;
+    color: $muted;
+    margin: 0 2px;
+  }
+
+  &__total {
+    font-size: 1.2rem;
+    color: $muted;
+  }
+}
+
+// ─── SKELETON ────────────────────────────────────────────────────────────────
+$skeleton-base: rgba(255,255,255,0.07);
+$skeleton-shine: rgba(255,255,255,0.13);
+
+@mixin skeleton($w, $h, $radius: 6px, $mb: 0) {
+  width: $w;
+  height: $h;
+  border-radius: $radius;
+  margin-bottom: $mb;
+  background: linear-gradient(90deg, $skeleton-base 25%, $skeleton-shine 50%, $skeleton-base 75%);
+  background-size: 400% 100%;
+  animation: skeletonSlide 1.6s ease-in-out infinite;
+}
+
+@keyframes skeletonSlide {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.skeleton-tag  { @include skeleton(120px, 14px, 20px, 20px); }
+.skeleton-title { @include skeleton(min(480px, 80%), 72px, 4px, 20px); }
+.skeleton-meta  { @include skeleton(260px, 18px, 20px, 20px); }
+.skeleton-desc  {
+  @include skeleton(min(420px, 70%), 14px, 20px, 6px);
+  &::after {
+    content: '';
+    display: block;
+    @include skeleton(min(320px, 55%), 14px, 20px, 20px);
+  }
+}
+.skeleton-actions { @include skeleton(240px, 46px, 6px, 0); }
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .ottp-slides {
+    height: 75svh;
+    min-height: 480px;
+  }
+
+  .ottp-content {
+    padding: 0 6% 12% 6%;
+  }
+
+  .ottp-title {
+    font-size: clamp(2.4rem, 9vw, 3.5rem);
+  }
+
+  .ottp-desc {
+    display: none;
+  }
+
+  .ottp-btn {
+    padding: 11px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ottp-slides {
+    height: 70svh;
+  }
+
+  .ottp-meta {
+    gap: 6px;
+    &__votes { display: none; }
+  }
 }

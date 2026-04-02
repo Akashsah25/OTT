@@ -1,148 +1,736 @@
-.banner {
-    display: flex;
-    justify-content: center;
-    .banner_item {
-        width: 95%;
-        position: relative;
-        .banner_img {
-            height: auto;
-            img {
-                border-radius: 10px;
-                height: 700px;
-                width: 100%;
-                opacity: 0.5;
-            }
-        }
-        .banner_overview {
-            position: absolute;
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            bottom: 0px;
-            height: 100%;
-            width: 100%;
-            background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-            .banner_content {
-                display: flex;
+// .banner {
+//     display: flex;
+//     justify-content: center;
+//     .banner_item {
+//         width: 95%;
+//         position: relative;
+//         .banner_img {
+//             height: auto;
+//             img {
+//                 border-radius: 10px;
+//                 height: 700px;
+//                 width: 100%;
+//                 opacity: 0.5;
+//             }
+//         }
+//         .banner_overview {
+//             position: absolute;
+//             display: flex;
+//             overflow: hidden;
+//             flex-direction: column;
+//             justify-content: center;
+//             align-items: center;
+//             bottom: 0px;
+//             height: 100%;
+//             width: 100%;
+//             background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+//             .banner_content {
+//                 display: flex;
 
-                gap: 3rem;
-                width: 60rem;
-                height: 30rem;
-                .banner_poster {
-                    width: 19rem;
-                    img {
-                        bottom: 0px;
-                        height: 100%;
-                        width: 100%;
-                        box-shadow: 12px 29px 81px 0px rgba(0, 0, 0, 0.75);
-                        border-radius: 10px;
-                        width: 100%;
-                    }
-                }
-                .banner_details {
-                    animation: 3s anim-lineUp ease-out;
-                @keyframes anim-lineUp {
-                    0% {
-                        opacity: 0;
-                        transform: translateY(80%);
-                    }
-                    20% {
-                        opacity: 0;
-                    }
-                    50% {
-                        opacity: 1;
-                        transform: translateY(0%);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0%);
-                    }
-                }
-                width: 38rem;
-                .banner_title {
-                    font-weight: 750;
-                    font-size: 4.5rem;
-                    text-align: left;
-                    margin-bottom:40px;
-                }
-                .banner_description {
-                    font-size: 1.1rem;
-                    font-weight: 300;
-                    text-align: left;
-                    margin: 10px;
-                }
-                .banner_info {
-                    display: flex;
-                    align-items: center;
-                    margin: 20px 10px;
-                    .logo {
-                        height: 24px;
-                        width: 48px;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                    .rating {
-                        font-size: 1.2rem;
-                        margin-left: 25px;
-                    }
-                    .banner_releasedate {
-                        font-size: 1.2rem;
-                        margin-left: 25px;
-                    }
-                    .runtime{
-                        font-size: 1.2rem;
-                        margin-left: 25px;
-                    }
-                    .adult{
-                        font-size: 1.2rem;
-                        margin-left: 25px;
-                    }
-                }
-                .genres{
-                    display: flex;
-                    margin:10px;
-                    .genres_name{
-                        font-size: 1.15rem;
-                        font-weight: 450;
-                        margin-right: 50px ;
+//                 gap: 3rem;
+//                 width: 60rem;
+//                 height: 30rem;
+//                 .banner_poster {
+//                     width: 19rem;
+//                     img {
+//                         bottom: 0px;
+//                         height: 100%;
+//                         width: 100%;
+//                         box-shadow: 12px 29px 81px 0px rgba(0, 0, 0, 0.75);
+//                         border-radius: 10px;
+//                         width: 100%;
+//                     }
+//                 }
+//                 .banner_details {
+//                     animation: 3s anim-lineUp ease-out;
+//                 @keyframes anim-lineUp {
+//                     0% {
+//                         opacity: 0;
+//                         transform: translateY(80%);
+//                     }
+//                     20% {
+//                         opacity: 0;
+//                     }
+//                     50% {
+//                         opacity: 1;
+//                         transform: translateY(0%);
+//                     }
+//                     100% {
+//                         opacity: 1;
+//                         transform: translateY(0%);
+//                     }
+//                 }
+//                 width: 38rem;
+//                 .banner_title {
+//                     font-weight: 750;
+//                     font-size: 4.5rem;
+//                     text-align: left;
+//                     margin-bottom:40px;
+//                 }
+//                 .banner_description {
+//                     font-size: 1.1rem;
+//                     font-weight: 300;
+//                     text-align: left;
+//                     margin: 10px;
+//                 }
+//                 .banner_info {
+//                     display: flex;
+//                     align-items: center;
+//                     margin: 20px 10px;
+//                     .logo {
+//                         height: 24px;
+//                         width: 48px;
+//                         img {
+//                             width: 100%;
+//                         }
+//                     }
+//                     .rating {
+//                         font-size: 1.2rem;
+//                         margin-left: 25px;
+//                     }
+//                     .banner_releasedate {
+//                         font-size: 1.2rem;
+//                         margin-left: 25px;
+//                     }
+//                     .runtime{
+//                         font-size: 1.2rem;
+//                         margin-left: 25px;
+//                     }
+//                     .adult{
+//                         font-size: 1.2rem;
+//                         margin-left: 25px;
+//                     }
+//                 }
+//                 .genres{
+//                     display: flex;
+//                     margin:10px;
+//                     .genres_name{
+//                         font-size: 1.15rem;
+//                         font-weight: 450;
+//                         margin-right: 50px ;
 
-                    }
-                }
-                .director{
-                    display: flex;
-                    margin:10px;
-                    .director_name{
-                        font-size: 1rem;
-                        font-weight: 300;
-                    }
-                }
-                .writer{
-                    display: flex;
-                    margin:10px;
-                    .writer_name{
-                        font-size: 1rem;
-                        font-weight: 300;
+//                     }
+//                 }
+//                 .director{
+//                     display: flex;
+//                     margin:10px;
+//                     .director_name{
+//                         font-size: 1rem;
+//                         font-weight: 300;
+//                     }
+//                 }
+//                 .writer{
+//                     display: flex;
+//                     margin:10px;
+//                     .writer_name{
+//                         font-size: 1rem;
+//                         font-weight: 300;
 
-                    }
-                }
-               .playbtn{
-                display: flex;
-                align-items: center;
-                gap: 10px; 
-                // opacity: 1;
-               } 
-               .icon{
-                width: 50px;
-                height: 50px;
-                img{
-                    width: 100%;
-                }
-               }
-            }
-        }
-    }
+//                     }
+//                 }
+//                .playbtn{
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 10px; 
+//                 // opacity: 1;
+//                } 
+//                .icon{
+//                 width: 50px;
+//                 height: 50px;
+//                 img{
+//                     width: 100%;
+//                 }
+//                }
+//             }
+//         }
+//     }
+// }
+// }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+// ─── TOKENS ──────────────────────────────────────────────────────────────────
+$accent:        #e50914;
+$accent-glow:   rgba(229, 9, 20, 0.35);
+$gold:          #f5c518;
+$white:         #ffffff;
+$muted:         rgba(255,255,255,0.5);
+$subtle:        rgba(255,255,255,0.12);
+$glass:         rgba(255,255,255,0.06);
+$glass-border:  rgba(255,255,255,0.1);
+$dark:          #0a0a0a;
+
+// ─── SHIMMER MIXIN ───────────────────────────────────────────────────────────
+@mixin shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.1)  50%,
+    rgba(255,255,255,0.05) 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
 }
+
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+// ─── ROOT ────────────────────────────────────────────────────────────────────
+.db-root {
+  font-family: 'Outfit', sans-serif;
+  color: $white;
+  position: relative;
+  min-height: 100svh;
+  background: $dark;
+  overflow: hidden;
+}
+
+// ─── BACKDROP ────────────────────────────────────────────────────────────────
+.db-backdrop {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 80%;
+    display: block;
+    opacity: 0.28;
+    filter: blur(2px) saturate(1.3);
+    transform: scale(1.04);
+  }
+
+  &__grad-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba($dark, 1)   0%,
+      rgba($dark, 0.85) 35%,
+      rgba($dark, 0.4)  65%,
+      transparent       100%
+    );
+  }
+
+  &__grad-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba($dark, 0.85) 0%,
+      rgba($dark, 0.4)  40%,
+      transparent       75%
+    );
+  }
+
+  &__grad-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 180px;
+    background: linear-gradient(to bottom, rgba($dark, 0.6), transparent);
+  }
+
+  &__noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 180px;
+  }
+}
+
+// ─── HERO LAYOUT ─────────────────────────────────────────────────────────────
+.db-hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding: clamp(100px, 14vh, 160px) clamp(1.5rem, 6vw, 7rem) clamp(3rem, 8vh, 6rem);
+  animation: heroReveal 0.7s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 3rem;
+  }
+}
+
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── POSTER ──────────────────────────────────────────────────────────────────
+.db-poster {
+  flex-shrink: 0;
+  position: relative;
+  width: clamp(160px, 20vw, 280px);
+
+  @media (max-width: 768px) {
+    width: 180px;
+  }
+
+  &__frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 8px 32px rgba(0,0,0,0.7),
+      0 2px 8px rgba(0,0,0,0.5),
+      inset 0 0 0 1px $glass-border;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+    }
+  }
+
+  &__shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  &__play-mobile {
+    display: none;
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    background: rgba($dark, 0.8);
+    backdrop-filter: blur(12px);
+    color: $white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+
+    svg { margin-left: 3px; }
+
+    &:hover {
+      background: $accent;
+      border-color: $accent;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+}
+
+// ─── INFO ─────────────────────────────────────────────────────────────────────
+.db-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+    margin-top: 28px;
+  }
+}
+
+// ─── COLLECTION ──────────────────────────────────────────────────────────────
+.db-collection {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 10px;
+}
+
+// ─── TITLE ───────────────────────────────────────────────────────────────────
+.db-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px 0;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+
+  &__year {
+    font-size: 0.55em;
+    color: $muted;
+    font-weight: 400;
+    margin-left: 0.3em;
+    vertical-align: middle;
+  }
+}
+
+// ─── TAGLINE ─────────────────────────────────────────────────────────────────
+.db-tagline {
+  font-size: 0.95rem;
+  font-weight: 300;
+  font-style: italic;
+  color: $muted;
+  margin: 0 0 20px 0;
+}
+
+// ─── META PILLS ──────────────────────────────────────────────────────────────
+.db-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
+  &__pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid $glass-border;
+    background: $glass;
+    backdrop-filter: blur(8px);
+    color: rgba(255,255,255,0.75);
+
+    &--cert {
+      border-color: rgba($gold, 0.4);
+      color: $gold;
+      background: rgba($gold, 0.08);
+    }
+  }
+}
+
+// ─── RATING ──────────────────────────────────────────────────────────────────
+.db-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  &__stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__star {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.18);
+    transition: color 0.2s;
+
+    &.filled {
+      color: $gold;
+      text-shadow: 0 0 8px rgba($gold, 0.5);
+    }
+  }
+
+  &__score {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $gold;
+  }
+
+  &__max {
+    font-size: 0.85rem;
+    color: $muted;
+    font-weight: 400;
+  }
+
+  &__count {
+    font-size: 0.78rem;
+    color: $muted;
+    background: $glass;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid $glass-border;
+  }
+}
+
+// ─── GENRES ──────────────────────────────────────────────────────────────────
+.db-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
+  &__tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid $glass-border;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.2s;
+    cursor: default;
+
+    &:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.2);
+    }
+  }
+}
+
+// ─── OVERVIEW ────────────────────────────────────────────────────────────────
+.db-overview {
+  margin-bottom: 24px;
+  max-width: 60ch;
+
+  &__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $muted;
+    margin: 0 0 8px 0;
+  }
+
+  &__text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    font-weight: 300;
+  }
+}
+
+// ─── CREW ────────────────────────────────────────────────────────────────────
+.db-crew {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 16px;
+  background: $glass;
+  border: 1px solid $glass-border;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  max-width: 480px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  &__role {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $muted;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+
+  &__names {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.88);
+  }
+}
+
+// ─── ACTIONS ─────────────────────────────────────────────────────────────────
+.db-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.db-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.2, 0, 0, 1);
+  white-space: nowrap;
+
+  &--primary {
+    background: $accent;
+    color: $white;
+    box-shadow: 0 4px 20px $accent-glow;
+
+    &:hover {
+      background: lighten(#e50914, 8%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba($accent, 0.5);
+    }
+
+    &:active { transform: translateY(0); }
+  }
+
+  &--ghost {
+    background: $glass;
+    color: $white;
+    border: 1px solid $glass-border;
+    backdrop-filter: blur(12px);
+
+    &:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    &:active { transform: translateY(0); }
+  }
+
+  &--icon {
+    padding: 12px;
+    background: $glass;
+    color: $white;
+    border: 1px solid $glass-border;
+    backdrop-filter: blur(12px);
+    border-radius: 50%;
+
+    &:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ─── STATS ROW ───────────────────────────────────────────────────────────────
+.db-stats {
+  display: flex;
+  gap: 0;
+  border: 1px solid $glass-border;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 480px;
+  background: $glass;
+  backdrop-filter: blur(8px);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    border-right: 1px solid $glass-border;
+
+    &:last-child { border-right: none; }
+  }
+
+  &__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $muted;
+  }
+
+  &__value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $white;
+  }
+}
+
+// ─── SKELETON ────────────────────────────────────────────────────────────────
+.db-skeleton {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding: clamp(100px, 14vh, 160px) clamp(1.5rem, 6vw, 7rem) 5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+  }
+
+  &__poster {
+    flex-shrink: 0;
+    width: clamp(160px, 20vw, 280px);
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    @include shimmer;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 8px;
+  }
+
+  &__line {
+    border-radius: 6px;
+    @include shimmer;
+
+    &--sm  { height: 14px; width: 140px; }
+    &--md  { height: 18px; width: 55%; }
+    &--lg  { height: 56px; width: 80%; border-radius: 4px; }
+    &--xl  { height: 80px; width: 90%; border-radius: 4px; }
+  }
+
+  &__actions {
+    margin-top: 8px;
+    height: 46px;
+    width: 240px;
+    border-radius: 8px;
+    @include shimmer;
+  }
+}
+
+// ─── RESPONSIVE TWEAKS ───────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .db-crew,
+  .db-stats {
+    font-size: 0.85rem;
+  }
+
+  .db-btn {
+    font-size: 0.82rem;
+    padding: 10px 18px;
+  }
 }

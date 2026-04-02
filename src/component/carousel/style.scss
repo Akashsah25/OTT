@@ -1,95 +1,1360 @@
-.carousel_section {
-    animation: 4s anim-lineUp ease-out;
-            @keyframes anim-lineUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(80%);
-                }
-                20% {
-                    opacity: 0;
-                }
-                50% {
-                    opacity: 1;
-                    transform: translateY(0%);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0%);
-                }
-            }
-    margin: 0px 60px;
-    height: 355px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: hidden;
-    &::-webkit-scrollbar {
-        display: none;
+// .carousel_section {
+//     animation: 4s anim-lineUp ease-out;
+//             @keyframes anim-lineUp {
+//                 0% {
+//                     opacity: 0;
+//                     transform: translateY(80%);
+//                 }
+//                 20% {
+//                     opacity: 0;
+//                 }
+//                 50% {
+//                     opacity: 1;
+//                     transform: translateY(0%);
+//                 }
+//                 100% {
+//                     opacity: 1;
+//                     transform: translateY(0%);
+//                 }
+//             }
+//     margin: 0px 60px;
+//     height: 355px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     overflow-y: hidden;
+//     &::-webkit-scrollbar {
+//         display: none;
+//     }
+//     .carouselItems {
+//         display: flex;
+//         justify-content: flex-start;
+//         padding: 10px 15px;
+//         .carouselItem {
+//             display: inline-block;
+//             transition: transform 0.2s;
+//             position: relative;
+//             border-radius: 8px;
+//             overflow: hidden;
+//             margin: 12px 8px;
+//             cursor: pointer;
+//             min-width: 180px;
+//             height: 270px;
+
+//             &:hover {
+//                 transform: scale(1.12);
+//                 box-shadow:
+//                     rgba(35, 35, 35, 0.25) 0px 24px 55px,
+//                     rgba(35, 35, 35, 0.25) 0px -12px 10px,
+//                     rgba(35, 35, 35, 0.25) 0px 4px 6px,
+//                     rgba(35, 35, 35, 0.25) 0px 12px 13px,
+//                     rgba(35, 35, 35, 0.25) 0px -3px 5px;
+//                 border: 1px solid rgb(63, 62, 62);
+//             }
+
+//             .cards_img {
+//                 img {
+//                     width: 100%;
+//                 }
+//             }
+
+//             .cards_overview {
+//                 position: absolute;
+//                 padding: 0 1rem 1rem 1rem;
+//                 bottom: 0px;
+//                 height: 290px;
+//                 display: flex;
+//                 flex-direction: column;
+//                 width: 85%;
+//                 justify-content: flex-end;
+//                 background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+//                 opacity: 0;
+//                 transition: opacity 0.4s;
+
+//                 &:hover {
+//                     opacity: 1;
+//                 }
+
+//                 .cards_title {
+//                     font-weight: 900;
+//                     font-size: 1rem;
+//                     margin-bottom: 0.4rem;
+//                 }
+
+//                 .cards_releasedata {
+//                     font-size: 0.75rem;
+//                     margin-bottom: 0.25rem;
+//                 }
+
+//                 .cards_rating {
+//                     float: right;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+// .carousel_section {
+//     margin: 0 40px; // Standard margin for better responsiveness
+//     position: relative;
+//     animation: anim-lineUp 1s ease-out forwards;
+
+//     @keyframes anim-lineUp {
+//         0% { opacity: 0; transform: translateY(40px); }
+//         100% { opacity: 1; transform: translateY(0%); }
+//     }
+
+//     .carouselItems, .skeleton_wrapper {
+//         display: flex;
+//         gap: 10px; // Modern spacing using flex gap instead of margins
+//         padding: 20px 0; // Gives room for the hover scale effect so cards don't get cut off
+//         overflow-x: auto;
+//         overflow-y: hidden;
+//         scroll-behavior: smooth;
+//         -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+
+//         // Completely hide scrollbars cross-browser
+//         &::-webkit-scrollbar {
+//             display: none;
+//         }
+//         scrollbar-width: none; // Firefox
+//     }
+
+//     .carouselItem {
+//         flex-shrink: 0; // Prevents flexbox from squishing the cards
+//         width: 180px;
+//         height: 270px;
+//         position: relative;
+//         border-radius: 6px;
+//         overflow: hidden;
+//         cursor: pointer;
+//         background-color: #1a1a1a; // Fallback color while image loads
+//         transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+//         &:hover {
+//             transform: scale(1.08); // Slightly smoother scale
+//             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            
+//                 border: 1px solid rgb(63, 62, 62);
+//             z-index: 2; // Prevents hovered card from sliding under adjacent cards
+//         }
+
+//         .cards_img {
+//             width: 100%;
+//             height: 100%;
+
+//             img {
+//                 width: 100%;
+//                 height: 100%;
+//                 object-fit: cover; // Crucial: stops images from stretching weirdly
+//                 object-position: center;
+//             }
+//         }
+
+//         // .cards_overview {
+//         //     position: absolute;
+//         //     inset: 0; // Shorthand for top 0, right 0, bottom 0, left 0
+//         //     padding: 1rem;
+//         //     display: flex;
+//         //     flex-direction: column;
+//         //     justify-content: flex-end;
+//         //     // Smoother gradient that covers the whole card to make text readable
+//         //     background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+//         //     opacity: 0;
+//         //     transition: opacity 0.3s ease;
+
+//         //     &:hover {
+//         //         opacity: 1;
+//         //     }
+
+//         //     .cards_title {
+//         //         font-weight: 800;
+//         //         font-size: 1rem;
+//         //         color: #ffffff;
+//         //         margin-bottom: 0.4rem;
+//         //         line-height: 1.2;
+//         //     }
+//         // }
+//         }
+//     }
+
+// // ─── Design Tokens ────────────────────────────────────────────────────────────
+// $bg-deep:       #080808;
+// $bg-card:       #111111;
+// $bg-popup:      #181818;
+// $border-subtle: rgba(255, 255, 255, 0.06);
+// $border-hover:  rgba(255, 255, 255, 0.13);
+// $text-primary:  #f0f0f0;
+// $text-secondary:#888888;
+// $text-muted:    #555555;
+// $accent:        #e8b84b;
+// $accent-glow:   rgba(232, 184, 75, 0.08);
+
+// $card-w:        160px;
+// $card-h:        240px;
+// $card-radius:   10px;
+// $popup-w:       280px;
+// $ease:          cubic-bezier(0.4, 0, 0.2, 1);
+
+// // ─── Root ─────────────────────────────────────────────────────────────────────
+// .carousel-root {
+//   position: relative;
+//   padding: 4px 0 20px;
+
+//   &::before,
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 0; bottom: 0;
+//     width: 80px;
+//     z-index: 10;
+//     pointer-events: none;
+//   }
+//   &::before { left:  0; background: linear-gradient(to right, $bg-deep, transparent); }
+//   &::after  { right: 0; background: linear-gradient(to left,  $bg-deep, transparent); }
+// }
+
+// // ─── Nav Arrows ───────────────────────────────────────────────────────────────
+// .carousel-nav {
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-60%);
+//   z-index: 20;
+//   width: 38px; height: 38px;
+//   border-radius: 50%;
+//   border: 1px solid $border-hover;
+//   background: rgba(18, 18, 18, 0.9);
+//   color: $text-primary;
+//   display: flex; align-items: center; justify-content: center;
+//   cursor: pointer;
+//   transition: all 0.2s $ease;
+//   backdrop-filter: blur(8px);
+
+//   &:hover {
+//     background: rgba(232, 184, 75, 0.12);
+//     border-color: rgba(232, 184, 75, 0.4);
+//     color: $accent;
+//     transform: translateY(-60%) scale(1.08);
+//   }
+//   &--left  { left: 8px; }
+//   &--right { right: 8px; }
+// }
+
+// // ─── Track ────────────────────────────────────────────────────────────────────
+// .carousel-track {
+//   display: flex;
+//   gap: 14px;
+//   padding: 16px 48px 20px;
+//   overflow-x: auto;
+//   overflow-y: visible;           // must be visible so popup isn't clipped
+//   scroll-behavior: smooth;
+//   -webkit-overflow-scrolling: touch;
+//   cursor: grab;
+//   user-select: none;
+
+//   &.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+//   &::-webkit-scrollbar { display: none; }
+//   scrollbar-width: none;
+// }
+
+// // ─── Skeleton ─────────────────────────────────────────────────────────────────
+// .card-skeleton {
+//   flex-shrink: 0;
+//   width: $card-w;
+//   height: $card-h + 52px;
+//   border-radius: $card-radius;
+//   overflow: hidden;
+//   animation: fadeIn 0.4s ease both;
+//   animation-delay: calc(var(--index, 0) * 60ms);
+// }
+
+// // ─── Cinema Card — CLEAN, zero overlays ───────────────────────────────────────
+// .cinema-card {
+//   flex-shrink: 0;
+//   width: $card-w;
+//   cursor: pointer;
+//   animation: cardReveal 0.5s $ease both;
+//   animation-delay: calc(var(--index, 0) * 40ms);
+
+//   @keyframes cardReveal {
+//     from { opacity: 0; transform: translateY(16px); }
+//     to   { opacity: 1; transform: translateY(0); }
+//   }
+
+//   &:focus-visible {
+//     outline: 2px solid $accent;
+//     outline-offset: 4px;
+//     border-radius: $card-radius;
+//   }
+// }
+
+// // ─── Poster ───────────────────────────────────────────────────────────────────
+// .card-poster {
+//   position: relative;
+//   width: 100%;
+//   height: $card-h;
+//   border-radius: $card-radius;
+//   overflow: hidden;
+//   background: $bg-card;
+//   border: 1px solid $border-subtle;
+//   transition:
+//     transform    0.35s $ease,
+//     border-color 0.35s $ease,
+//     box-shadow   0.35s $ease;
+
+//   img {
+//     width: 100%; height: 100%;
+//     object-fit: cover;
+//     object-position: center top;
+//     display: block;
+//     transition: transform 0.5s $ease;
+//   }
+
+//   .cinema-card:hover & {
+//     transform: translateY(-5px) scale(1.025);
+//     border-color: $border-hover;
+//     box-shadow:
+//       0 18px 50px rgba(0, 0, 0, 0.7),
+//       0 0 0 1px rgba(255, 255, 255, 0.07),
+//       0 0 36px $accent-glow;
+
+//     img { transform: scale(1.05); }
+//   }
+// }
+
+// // Bottom gold ambient glow — subtle, not text
+// .card-glow {
+//   position: absolute; inset: 0;
+//   background: linear-gradient(180deg, transparent 60%, rgba(232, 184, 75, 0.08) 100%);
+//   pointer-events: none;
+//   opacity: 0;
+//   transition: opacity 0.35s ease;
+
+//   .cinema-card:hover & { opacity: 1; }
+// }
+
+// // ─── Card Meta (below poster) ─────────────────────────────────────────────────
+// .card-meta { padding: 9px 2px 0; }
+
+// .card-title {
+//   font-size: 12px;
+//   font-weight: 600;
+//   color: $text-secondary;
+//   margin: 0 0 3px;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   line-height: 1.3;
+//   transition: color 0.2s ease;
+
+//   .cinema-card:hover & { color: $text-primary; }
+// }
+
+// .card-year {
+//   font-size: 11px;
+//   color: $text-muted;
+//   margin: 0;
+//   font-variant-numeric: tabular-nums;
+//   transition: color 0.2s ease;
+
+//   .cinema-card:hover & { color: $text-secondary; }
+// }
+
+// // ─── Popup Portal (fixed, above everything) ───────────────────────────────────
+// .popup-portal {
+//   position: fixed;
+//   inset: 0;
+//   pointer-events: none;
+//   z-index: 9999;
+// }
+
+// // ─── Popup Card ───────────────────────────────────────────────────────────────
+// .popup-card {
+//   position: absolute;
+//   width: $popup-w;
+//   background: $bg-popup;
+//   border-radius: 12px;
+//   border: 1px solid rgba(255, 255, 255, 0.1);
+//   box-shadow:
+//     0 32px 80px rgba(0, 0, 0, 0.85),
+//     0 0 0 1px rgba(255, 255, 255, 0.05),
+//     0 0 60px rgba(0, 0, 0, 0.5);
+//   overflow: hidden;
+//   pointer-events: auto;
+//   animation: popupIn 0.22s $ease both;
+
+//   // Arrow pointing back to card
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     border: 8px solid transparent;
+//   }
+
+//   &--right::before {
+//     left: -15px;
+//     border-right-color: rgba(255, 255, 255, 0.1);
+//   }
+//   &--left::before {
+//     right: -15px;
+//     border-left-color: rgba(255, 255, 255, 0.1);
+//   }
+
+//   @keyframes popupIn {
+//     from { opacity: 0; transform: scale(0.92) translateY(6px); }
+//     to   { opacity: 1; transform: scale(1) translateY(0); }
+//   }
+// }
+
+// // ─── Popup Thumbnail Strip ────────────────────────────────────────────────────
+// .popup-thumb {
+//   position: relative;
+//   width: 100%;
+//   height: 145px;
+//   overflow: hidden;
+
+//   img {
+//     width: 100%; height: 100%;
+//     object-fit: cover;
+//     object-position: center top;
+//     display: block;
+//   }
+// }
+
+// .popup-thumb__fade {
+//   position: absolute; inset: 0;
+//   background: linear-gradient(to top, $bg-popup 0%, transparent 55%);
+// }
+
+// .popup-thumb__title {
+//   position: absolute;
+//   bottom: 10px; left: 14px; right: 14px;
+//   font-size: 15px;
+//   font-weight: 800;
+//   color: $text-primary;
+//   line-height: 1.2;
+//   letter-spacing: -0.01em;
+//   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+// }
+
+// // ─── Popup Body ───────────────────────────────────────────────────────────────
+// .popup-body {
+//   padding: 12px 14px 14px;
+// }
+
+// .popup-meta {
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 6px;
+//   margin-bottom: 10px;
+// }
+
+// .popup-rating {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 3px;
+//   padding: 2px 7px;
+//   border-radius: 20px;
+//   font-size: 10.5px;
+//   font-weight: 700;
+//   border: 1px solid transparent;
+
+//   &.rating--high { background: rgba(76,175,125,0.18); border-color: rgba(76,175,125,0.3); color: #5edc9e; }
+//   &.rating--mid  { background: rgba(232,184,75,0.15); border-color: rgba(232,184,75,0.28); color: $accent; }
+//   &.rating--low  { background: rgba(224,92,92,0.15);  border-color: rgba(224,92,92,0.28);  color: #f07070; }
+// }
+
+// .popup-year,
+// .popup-lang,
+// .popup-votes {
+//   font-size: 10.5px;
+//   color: $text-muted;
+//   font-weight: 500;
+// }
+
+// .popup-lang {
+//   padding: 2px 6px;
+//   border-radius: 4px;
+//   border: 1px solid rgba(255,255,255,0.1);
+//   color: $text-secondary;
+//   font-size: 9.5px;
+//   letter-spacing: 0.06em;
+// }
+
+// .popup-overview {
+//   font-size: 11.5px;
+//   color: rgba(255, 255, 255, 0.58);
+//   line-height: 1.6;
+//   margin: 0 0 10px;
+// }
+
+// .popup-release {
+//   font-size: 10.5px;
+//   color: $text-muted;
+//   margin: 0 0 12px;
+//   display: flex;
+//   align-items: center;
+//   gap: 5px;
+
+//   &__label {
+//     font-size: 9.5px;
+//     font-weight: 700;
+//     letter-spacing: 0.07em;
+//     text-transform: uppercase;
+//     color: $text-muted;
+//   }
+// }
+
+// // ─── Popup Action Buttons ─────────────────────────────────────────────────────
+// .popup-actions {
+//   display: flex;
+//   gap: 8px;
+// }
+
+// .popup-btn {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 6px;
+//   border: none;
+//   cursor: pointer;
+//   border-radius: 6px;
+//   font-size: 12px;
+//   font-weight: 700;
+//   transition: all 0.18s $ease;
+
+//   &--play {
+//     flex: 1;
+//     justify-content: center;
+//     padding: 8px 14px;
+//     background: $accent;
+//     color: #0a0a0a;
+
+//     &:hover {
+//       background: lighten(#e8b84b, 8%);
+//       transform: translateY(-1px);
+//       box-shadow: 0 6px 20px rgba(232, 184, 75, 0.35);
+//     }
+//   }
+
+//   &--info {
+//     width: 36px; height: 36px;
+//     justify-content: center;
+//     padding: 0;
+//     background: rgba(255, 255, 255, 0.08);
+//     color: $text-primary;
+//     border: 1px solid rgba(255, 255, 255, 0.12);
+
+//     &:hover {
+//       background: rgba(255, 255, 255, 0.14);
+//       border-color: rgba(255, 255, 255, 0.2);
+//     }
+//   }
+// }
+
+// // ─── Utility ──────────────────────────────────────────────────────────────────
+// @keyframes fadeIn {
+//   from { opacity: 0; }
+//   to   { opacity: 1; }
+// }
+
+
+// // ─── Design Tokens ────────────────────────────────────────────────────────────
+// $bg-deep:       #080808;
+// $bg-card:       #111111;
+// $bg-popup:      #181818;
+// $border-subtle: rgba(255, 255, 255, 0.06);
+// $border-hover:  rgba(255, 255, 255, 0.13);
+// $text-primary:  #f0f0f0;
+// $text-secondary:#888888;
+// $text-muted:    #555555;
+// $accent:        #e8b84b;
+// $accent-glow:   rgba(232, 184, 75, 0.08);
+
+// $card-w:        160px;
+// $card-h:        240px;
+// $card-radius:   10px;
+// $popup-w:       280px;
+// $ease:          cubic-bezier(0.4, 0, 0.2, 1);
+
+// // ─── Root ─────────────────────────────────────────────────────────────────────
+// .carousel-root {
+//   position: relative;
+//   padding: 4px 0 20px;
+
+//   &::before,
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 0; bottom: 0;
+//     width: 80px;
+//     z-index: 10;
+//     pointer-events: none;
+//   }
+//   &::before { left:  0; background: linear-gradient(to right, $bg-deep, transparent); }
+//   &::after  { right: 0; background: linear-gradient(to left,  $bg-deep, transparent); }
+// }
+
+// // ─── Nav Arrows ───────────────────────────────────────────────────────────────
+// .carousel-nav {
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-60%);
+//   z-index: 20;
+//   width: 38px; height: 38px;
+//   border-radius: 50%;
+//   border: 1px solid $border-hover;
+//   background: rgba(18, 18, 18, 0.9);
+//   color: $text-primary;
+//   display: flex; align-items: center; justify-content: center;
+//   cursor: pointer;
+//   transition: all 0.2s $ease;
+//   backdrop-filter: blur(8px);
+
+//   &:hover {
+//     background: rgba(232, 184, 75, 0.12);
+//     border-color: rgba(232, 184, 75, 0.4);
+//     color: $accent;
+//     transform: translateY(-60%) scale(1.08);
+//   }
+//   &--left  { left: 8px; }
+//   &--right { right: 8px; }
+// }
+
+// // ─── Track ────────────────────────────────────────────────────────────────────
+// .carousel-track {
+//   display: flex;
+//   gap: 14px;
+//   padding: 16px 48px 20px;
+//   overflow-x: auto;
+//   overflow-y: clip;              // clip lets X scroll without trapping fixed positioned children
+//   scroll-behavior: smooth;
+//   -webkit-overflow-scrolling: touch;
+//   cursor: grab;
+//   user-select: none;
+
+//   &.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+//   &::-webkit-scrollbar { display: none; }
+//   scrollbar-width: none;
+// }
+
+// // ─── Skeleton ─────────────────────────────────────────────────────────────────
+// .card-skeleton {
+//   flex-shrink: 0;
+//   width: $card-w;
+//   height: $card-h + 52px;
+//   border-radius: $card-radius;
+//   overflow: hidden;
+//   animation: fadeIn 0.4s ease both;
+//   animation-delay: calc(var(--index, 0) * 60ms);
+// }
+
+// // ─── Cinema Card — CLEAN, zero overlays ───────────────────────────────────────
+// .cinema-card {
+//   flex-shrink: 0;
+//   width: $card-w;
+//   cursor: pointer;
+//   animation: cardReveal 0.5s $ease both;
+//   animation-delay: calc(var(--index, 0) * 40ms);
+
+//   @keyframes cardReveal {
+//     from { opacity: 0; transform: translateY(16px); }
+//     to   { opacity: 1; transform: translateY(0); }
+//   }
+
+//   &:focus-visible {
+//     outline: 2px solid $accent;
+//     outline-offset: 4px;
+//     border-radius: $card-radius;
+//   }
+// }
+
+// // ─── Poster ───────────────────────────────────────────────────────────────────
+// .card-poster {
+//   position: relative;
+//   width: 100%;
+//   height: $card-h;
+//   border-radius: $card-radius;
+//   overflow: hidden;
+//   background: $bg-card;
+//   border: 1px solid $border-subtle;
+//   transition:
+//     transform    0.35s $ease,
+//     border-color 0.35s $ease,
+//     box-shadow   0.35s $ease;
+
+//   img {
+//     width: 100%; height: 100%;
+//     object-fit: cover;
+//     object-position: center top;
+//     display: block;
+//     transition: transform 0.5s $ease;
+//   }
+
+//   .cinema-card:hover & {
+//     transform: translateY(-5px) scale(1.025);
+//     border-color: $border-hover;
+//     box-shadow:
+//       0 18px 50px rgba(0, 0, 0, 0.7),
+//       0 0 0 1px rgba(255, 255, 255, 0.07),
+//       0 0 36px $accent-glow;
+
+//     img { transform: scale(1.05); }
+//   }
+// }
+
+// // Bottom gold ambient glow — subtle, not text
+// .card-glow {
+//   position: absolute; inset: 0;
+//   background: linear-gradient(180deg, transparent 60%, rgba(232, 184, 75, 0.08) 100%);
+//   pointer-events: none;
+//   opacity: 0;
+//   transition: opacity 0.35s ease;
+
+//   .cinema-card:hover & { opacity: 1; }
+// }
+
+// // ─── Card Meta (below poster) ─────────────────────────────────────────────────
+// .card-meta { padding: 9px 2px 0; }
+
+// .card-title {
+//   font-size: 12px;
+//   font-weight: 600;
+//   color: $text-secondary;
+//   margin: 0 0 3px;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   line-height: 1.3;
+//   transition: color 0.2s ease;
+
+//   .cinema-card:hover & { color: $text-primary; }
+// }
+
+// .card-year {
+//   font-size: 11px;
+//   color: $text-muted;
+//   margin: 0;
+//   font-variant-numeric: tabular-nums;
+//   transition: color 0.2s ease;
+
+//   .cinema-card:hover & { color: $text-secondary; }
+// }
+
+// // ─── Popup Portal (fixed, above everything) ───────────────────────────────────
+// .popup-portal {
+//   position: fixed;
+//   inset: 0;
+//   pointer-events: none;
+//   z-index: 9999;
+// }
+
+// // ─── Popup Card ───────────────────────────────────────────────────────────────
+// .popup-card {
+//   position: absolute;
+//   width: $popup-w;
+//   background: $bg-popup;
+//   border-radius: 12px;
+//   border: 1px solid rgba(255, 255, 255, 0.1);
+//   box-shadow:
+//     0 32px 80px rgba(0, 0, 0, 0.85),
+//     0 0 0 1px rgba(255, 255, 255, 0.05),
+//     0 0 60px rgba(0, 0, 0, 0.5);
+//   overflow: hidden;
+//   pointer-events: auto;
+//   animation: popupIn 0.22s $ease both;
+
+//   // Arrow pointing down toward the card
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     bottom: -14px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     border: 7px solid transparent;
+//     border-top-color: rgba(255, 255, 255, 0.1);
+//   }
+
+//   @keyframes popupIn {
+//     from { opacity: 0; transform: scale(0.92) translateY(6px); }
+//     to   { opacity: 1; transform: scale(1) translateY(0); }
+//   }
+// }
+
+// // ─── Popup Thumbnail Strip ────────────────────────────────────────────────────
+// .popup-thumb {
+//   position: relative;
+//   width: 100%;
+//   height: 145px;
+//   overflow: hidden;
+
+//   img {
+//     width: 100%; height: 100%;
+//     object-fit: cover;
+//     object-position: center top;
+//     display: block;
+//   }
+// }
+
+// .popup-thumb__fade {
+//   position: absolute; inset: 0;
+//   background: linear-gradient(to top, $bg-popup 0%, transparent 55%);
+// }
+
+// .popup-thumb__title {
+//   position: absolute;
+//   bottom: 10px; left: 14px; right: 14px;
+//   font-size: 15px;
+//   font-weight: 800;
+//   color: $text-primary;
+//   line-height: 1.2;
+//   letter-spacing: -0.01em;
+//   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+// }
+
+// // ─── Popup Body ───────────────────────────────────────────────────────────────
+// .popup-body {
+//   padding: 12px 14px 14px;
+// }
+
+// .popup-meta {
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 6px;
+//   margin-bottom: 10px;
+// }
+
+// .popup-rating {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 3px;
+//   padding: 2px 7px;
+//   border-radius: 20px;
+//   font-size: 10.5px;
+//   font-weight: 700;
+//   border: 1px solid transparent;
+
+//   &.rating--high { background: rgba(76,175,125,0.18); border-color: rgba(76,175,125,0.3); color: #5edc9e; }
+//   &.rating--mid  { background: rgba(232,184,75,0.15); border-color: rgba(232,184,75,0.28); color: $accent; }
+//   &.rating--low  { background: rgba(224,92,92,0.15);  border-color: rgba(224,92,92,0.28);  color: #f07070; }
+// }
+
+// .popup-year,
+// .popup-lang,
+// .popup-votes {
+//   font-size: 10.5px;
+//   color: $text-muted;
+//   font-weight: 500;
+// }
+
+// .popup-lang {
+//   padding: 2px 6px;
+//   border-radius: 4px;
+//   border: 1px solid rgba(255,255,255,0.1);
+//   color: $text-secondary;
+//   font-size: 9.5px;
+//   letter-spacing: 0.06em;
+// }
+
+// .popup-overview {
+//   font-size: 11.5px;
+//   color: rgba(255, 255, 255, 0.58);
+//   line-height: 1.6;
+//   margin: 0 0 10px;
+// }
+
+// .popup-release {
+//   font-size: 10.5px;
+//   color: $text-muted;
+//   margin: 0 0 12px;
+//   display: flex;
+//   align-items: center;
+//   gap: 5px;
+
+//   &__label {
+//     font-size: 9.5px;
+//     font-weight: 700;
+//     letter-spacing: 0.07em;
+//     text-transform: uppercase;
+//     color: $text-muted;
+//   }
+// }
+
+// // ─── Popup Action Buttons ─────────────────────────────────────────────────────
+// .popup-actions {
+//   display: flex;
+//   gap: 8px;
+// }
+
+// .popup-btn {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 6px;
+//   border: none;
+//   cursor: pointer;
+//   border-radius: 6px;
+//   font-size: 12px;
+//   font-weight: 700;
+//   transition: all 0.18s $ease;
+
+//   &--play {
+//     flex: 1;
+//     justify-content: center;
+//     padding: 8px 14px;
+//     background: $accent;
+//     color: #0a0a0a;
+
+//     &:hover {
+//       background: lighten(#e8b84b, 8%);
+//       transform: translateY(-1px);
+//       box-shadow: 0 6px 20px rgba(232, 184, 75, 0.35);
+//     }
+//   }
+
+//   &--info {
+//     width: 36px; height: 36px;
+//     justify-content: center;
+//     padding: 0;
+//     background: rgba(255, 255, 255, 0.08);
+//     color: $text-primary;
+//     border: 1px solid rgba(255, 255, 255, 0.12);
+
+//     &:hover {
+//       background: rgba(255, 255, 255, 0.14);
+//       border-color: rgba(255, 255, 255, 0.2);
+//     }
+//   }
+// }
+
+// // ─── Utility ──────────────────────────────────────────────────────────────────
+// @keyframes fadeIn {
+//   from { opacity: 0; }
+//   to   { opacity: 1; }
+// }
+
+
+
+
+
+// ─── Design Tokens ────────────────────────────────────────────────────────────
+$bg-deep:        #080808;
+$bg-card:        #111111;
+$bg-popup:       #181818;
+$border-subtle:  rgba(255, 255, 255, 0.06);
+$border-hover:   rgba(255, 255, 255, 0.13);
+$text-primary:   #f0f0f0;
+$text-secondary: #888888;
+$text-muted:     #555555;
+$accent:         #e8b84b;
+$accent-glow:    rgba(232, 184, 75, 0.08);
+
+$card-w:      160px;
+$card-h:      240px;
+$card-radius: 10px;
+$popup-w:     280px;
+$ease:        cubic-bezier(0.4, 0, 0.2, 1);
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+.carousel-root {
+  position: relative;
+  padding: 4px 0 20px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  &::before { left: 0;  background: linear-gradient(to right, $bg-deep, transparent); }
+  &::after  { right: 0; background: linear-gradient(to left,  $bg-deep, transparent); }
+}
+
+// ─── Nav Arrows ───────────────────────────────────────────────────────────────
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: 20;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid $border-hover;
+  background: rgba(18, 18, 18, 0.9);
+  color: $text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s $ease;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background: rgba(232, 184, 75, 0.12);
+    border-color: rgba(232, 184, 75, 0.4);
+    color: $accent;
+    transform: translateY(-60%) scale(1.08);
+  }
+
+  &--left  { left: 8px; }
+  &--right { right: 8px; }
+}
+
+// ─── Track ────────────────────────────────────────────────────────────────────
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  padding: 16px 48px 20px;
+  overflow-x: auto;
+  overflow-y: visible; // must be visible so the card scale animation shows
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+
+  &.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+
+  &::-webkit-scrollbar { display: none; }
+  scrollbar-width: none;
+}
+
+// ─── Skeleton ─────────────────────────────────────────────────────────────────
+.card-skeleton {
+  flex-shrink: 0;
+  width: $card-w;
+  height: $card-h + 52px;
+  border-radius: $card-radius;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease both;
+  animation-delay: calc(var(--index, 0) * 60ms);
+}
+
+// ─── Cinema Card ──────────────────────────────────────────────────────────────
+.cinema-card {
+  flex-shrink: 0;
+  width: $card-w;
+  cursor: pointer;
+  animation: cardReveal 0.5s $ease both;
+  animation-delay: calc(var(--index, 0) * 40ms);
+
+  @keyframes cardReveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 4px;
+    border-radius: $card-radius;
+  }
+}
+
+// ─── Poster ───────────────────────────────────────────────────────────────────
+.card-poster {
+  position: relative;
+  width: 100%;
+  height: $card-h;
+  border-radius: $card-radius;
+  overflow: hidden;
+  background: $bg-card;
+  border: 1px solid $border-subtle;
+  transition:
+    transform    0.35s $ease,
+    border-color 0.35s $ease,
+    box-shadow   0.35s $ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s $ease;
+  }
+
+  .cinema-card:hover & {
+    transform: translateY(-5px) scale(1.025);
+    border-color: $border-hover;
+    box-shadow:
+      0 18px 50px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(255, 255, 255, 0.07),
+      0 0 36px $accent-glow;
+
+    img { transform: scale(1.05); }
+  }
+}
+
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(232, 184, 75, 0.08) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+
+  .cinema-card:hover & { opacity: 1; }
+}
+
+// ─── Card Meta ────────────────────────────────────────────────────────────────
+.card-meta { padding: 9px 2px 0; }
+
+.card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+
+  .cinema-card:hover & { color: $text-primary; }
+}
+
+.card-year {
+  font-size: 11px;
+  color: $text-muted;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s ease;
+
+  .cinema-card:hover & { color: $text-secondary; }
+}
+
+// ─── Popup Card (position: fixed via portal) ──────────────────────────────────
+// NOTE: position: fixed is set inline in JS using getBoundingClientRect()
+// which already returns viewport coords — no scroll offset math needed.
+.popup-card {
+  width: $popup-w;
+  background: $bg-popup;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 60px rgba(0, 0, 0, 0.5);
+  overflow: visible; // allow arrow pseudo-element to escape
+  pointer-events: auto;
+  animation: popupIn 0.22s $ease both;
+
+  // ── Arrow pointing DOWN (popup is ABOVE the card) ─────────────────────────
+  &--arrow-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 13px;
+    height: 13px;
+    background: $bg-popup;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+
+  // ── Arrow pointing UP (popup is BELOW the card) ───────────────────────────
+  &--arrow-top::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 13px;
+    height: 13px;
+    background: $bg-popup;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+
+  @keyframes popupIn {
+    from { opacity: 0; transform: scale(0.93) translateY(5px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+}
+
+// ─── Popup inner content (clips image to rounded top) ────────────────────────
+.popup-inner {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+// ─── Popup Thumbnail ─────────────────────────────────────────────────────────
+.popup-thumb {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+}
+
+.popup-thumb__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, $bg-popup 0%, transparent 55%);
+}
+
+.popup-thumb__title {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  right: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+// ─── Popup Body ───────────────────────────────────────────────────────────────
+.popup-body {
+  padding: 12px 14px 14px;
+}
+
+.popup-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.popup-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 700;
+  border: 1px solid transparent;
+
+  &.rating--high {
+    background: rgba(76, 175, 125, 0.18);
+    border-color: rgba(76, 175, 125, 0.3);
+    color: #5edc9e;
+  }
+  &.rating--mid {
+    background: rgba(232, 184, 75, 0.15);
+    border-color: rgba(232, 184, 75, 0.28);
+    color: $accent;
+  }
+  &.rating--low {
+    background: rgba(224, 92, 92, 0.15);
+    border-color: rgba(224, 92, 92, 0.28);
+    color: #f07070;
+  }
+}
+
+.popup-year,
+.popup-lang,
+.popup-votes {
+  font-size: 10.5px;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+.popup-lang {
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $text-secondary;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+}
+
+.popup-overview {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.popup-release {
+  font-size: 10.5px;
+  color: $text-muted;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &__label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+}
+
+// ─── Popup Buttons ────────────────────────────────────────────────────────────
+.popup-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.popup-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.18s $ease;
+
+  &--play {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 14px;
+    background: $accent;
+    color: #0a0a0a;
+
+    &:hover {
+      background: lighten(#e8b84b, 8%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232, 184, 75, 0.35);
     }
-    .carouselItems {
-        display: flex;
-        justify-content: flex-start;
-        padding: 10px 15px;
-        .carouselItem {
-            display: inline-block;
-            transition: transform 0.2s;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 12px 8px;
-            cursor: pointer;
-            min-width: 180px;
-            height: 270px;
+  }
 
-            &:hover {
-                transform: scale(1.12);
-                box-shadow:
-                    rgba(35, 35, 35, 0.25) 0px 24px 55px,
-                    rgba(35, 35, 35, 0.25) 0px -12px 10px,
-                    rgba(35, 35, 35, 0.25) 0px 4px 6px,
-                    rgba(35, 35, 35, 0.25) 0px 12px 13px,
-                    rgba(35, 35, 35, 0.25) 0px -3px 5px;
-                border: 1px solid rgb(63, 62, 62);
-            }
+  &--info {
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.08);
+    color: $text-primary;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-            .cards_img {
-                img {
-                    width: 100%;
-                }
-            }
-
-            .cards_overview {
-                position: absolute;
-                padding: 0 1rem 1rem 1rem;
-                bottom: 0px;
-                height: 290px;
-                display: flex;
-                flex-direction: column;
-                width: 85%;
-                justify-content: flex-end;
-                background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-                opacity: 0;
-                transition: opacity 0.4s;
-
-                &:hover {
-                    opacity: 1;
-                }
-
-                .cards_title {
-                    font-weight: 900;
-                    font-size: 1rem;
-                    margin-bottom: 0.4rem;
-                }
-
-                .cards_releasedata {
-                    font-size: 0.75rem;
-                    margin-bottom: 0.25rem;
-                }
-
-                .cards_rating {
-                    float: right;
-                }
-            }
-        }
+    &:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.2);
     }
+  }
+}
+
+// ─── Utility ──────────────────────────────────────────────────────────────────
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
